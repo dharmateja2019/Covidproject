@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>
+            My first webpage
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <style type="text/css">
+            .container{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body style="background-color: blueviolet;">
+        <h1 style="color:white;text-align: center"><span color:red>COVID-19</span> WORLD WIDE DATA</h1>
+        <form method="POST" style='margin-top:50px;'class='d-flex justify-content-center align-items-center' action="">
+            {% csrf_token %}
+            <select class='form-control' style='width: 200px' name='country'>
+                {% for item in list1 %}
+                <option>{{item}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" name="">
+        </form>
+        <h1 style='margin-top:150px;color:white;text-align:center'>{{country}}</h1>
+        <div class='d-flex justify-content-center align-items-center'>
+            <div class='container' style='border-radius:10px;background-color:orange;height: 100px; width: 200px'>
+                <h style:'text-align:center'>{{total}}</h>
+                <p style:'text-align:center'>Total cases</p>
+            </div>
+            <div class='container' style='border-radius:10px;background-color:green;height: 100px; width: 200px'>
+                <h style:'text-align:center;color:white'>{{recovered}}</h>
+                <p style:'text-align:center;color:white'>recovered</p>
+            </div>
+            <div class='container' style='border-radius:10px;background-color:yellow;height: 100px; width: 200px'>
+                <h style:'text-align:center;'>{{active}}</h>
+                <p style:'text-align:center'>active</p>
+            </div>
+        </div>
+        <div class='d-flex justify-content-center align-items-center'>
+            <div class='container' style='border-radius:10px;background-color:gray;height: 100px; width: 200px'>
+                <h style:'text-align:center'>{{new}}</h>
+                <p style:'text-align:center'>new cases</p>
+            </div>
+            <div class='container' style='border-radius:10px;background-color:skyblue;height: 100px; width: 200px'>
+                <h style:'text-align:center;color:white'>{{deaths}}</h>
+                <p style:'text-align:center;color:white'>deaths</p>
+            </div>
+            <div class='container' style='border-radius:10px;background-color:red;height: 100px; width: 200px'>
+                <h style:'text-align:center'>{{critical}}</h>
+                <p style:'text-align:center'>critical</p>
+            </div>
+        </div>
+        <p style='margin-top: 30px;color:white;text-align:center'>Developed by <span style='color:brown'>Dharmateja</span></p>
+    </body>
+</html>
